@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="700.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingcart3.Cart">
+    <top>
+        <GridPane hgap="10.0" maxWidth="-Infinity" prefHeight="125.0" prefWidth="700.0" vgap="10.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ComboBox fx:id="cboSelectedItem" prefWidth="150.0" promptText="Select item" GridPane.columnSpan="2" />
+                <Slider fx:id="sldSelectUnits" majorTickUnit="2.0" max="10.0" minorTickCount="1" prefHeight="14.0" prefWidth="223.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.columnSpan="2">
+                    <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                    </cursor></Slider>
+                <Label text="Unit" GridPane.rowIndex="1" />
+                <Label layoutX="10.0" layoutY="65.0" text="Price/unit" GridPane.rowIndex="2" />
+                <Label fx:id="lblUnit" layoutX="10.0" layoutY="106.0" prefHeight="21.0" prefWidth="125.0" style="-fx-text-fill: #008080;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="lblPrice" layoutX="146.0" layoutY="65.0" prefHeight="21.0" prefWidth="125.0" style="-fx-text-fill: #008080;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label layoutX="146.0" layoutY="106.0" text="Select units" GridPane.columnIndex="2" />
+                <Label layoutX="282.0" layoutY="23.0" text="Purchased units" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="lblPurchasedNumber" layoutX="282.0" layoutY="65.0" prefHeight="21.0" prefWidth="58.0" style="-fx-text-fill: #008080;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label text="Total price" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label fx:id="lblTotalPrice" prefHeight="21.0" prefWidth="63.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnPurchaseItem" mnemonicParsing="false" onAction="#btnPurchaseItemOnAction" prefHeight="25.0" prefWidth="139.0" text="Purchase Item" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            </children>
+        </GridPane>
+    </top>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+   <bottom>
+      <TableView fx:id="tblPurchasedItems" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="97.0" text="Name" />
+          <TableColumn fx:id="colUnit" prefWidth="97.0" text="Unit" />
+            <TableColumn fx:id="colUnitQty" prefWidth="118.0" text="Unit Quantity" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="121.0" text="Unit Price" />
+            <TableColumn fx:id="colUnitPurchased" prefWidth="130.0" text="UnitsPurchased" />
+            <TableColumn fx:id="colTotalPrice" prefWidth="116.0" text="Total price" />
+        </columns>
+      </TableView>
+   </bottom>
+</BorderPane>
